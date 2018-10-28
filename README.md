@@ -32,7 +32,7 @@ vagrant up
 | -|:-:|-:|-:|
 | web01| 192.168.33.11 |Web Server (Apache)|CentOS 7|
 | web02| 192.168.33.12|Web Server (Apache)|CentOS 7|
-| lb01|192.168.33.12|Load Balancer (HAProxy)|CentOS 7|
+| lb01|192.168.33.13|Load Balancer (HAProxy)|CentOS 7|
 
 ## Network Diagram
 
