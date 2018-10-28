@@ -1,0 +1,16 @@
+---
+- name: Install Apache Web Server
+  package:
+    name: httpd
+    state: present
+
+- name: Ensure Apache is enabled and running
+  service:
+    name: httpd 
+    state: started 
+    enabled: yes
+
+- name: Deploy website
+  template:
+    src: index.html.j2
+    dest: "{{web_root}}/index.html"

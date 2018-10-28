@@ -1,0 +1,9 @@
+---
+- name: Master Play to deploy web stack
+  hosts: all
+  roles:
+
+    - { role: web, tags: ["webserver"] }
+    - { role: lb, tags: ["lbserver"] }
+
+
