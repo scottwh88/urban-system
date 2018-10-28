@@ -1,18 +1,6 @@
 ---
 - hosts: all
-
-
   tasks:
-  - name: Install HAProxy Web Server
-    package:
-      name: haproxy
-      state: present
-
-  - name: Ensure HaProxy is enabled and running
-    service:
-      name: haproxy 
-      state: started 
-      enabled: yes
 
   - name: Configure DNS
     blockinfile:
@@ -21,6 +9,11 @@
         192.168.33.11   web01
         192.168.33.12   web02
         192.168.33.13   lb01
+        
+  - name: Install HAProxy Web Server
+    package:
+      name: haproxy
+      state: present
 
   - name: Deploy HAProxy Configuration
     copy:
@@ -29,3 +22,9 @@
       owner: root
       group: root
       mode: 0644
+
+  - name: Ensure HaProxy is enabled and running
+    service:
+      name: haproxy 
+      state: started 
+      enabled: yes
