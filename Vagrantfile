@@ -31,7 +31,7 @@ Vagrant.configure("2") do |config|
         web02.vm.provision "ansible" do |ansible|
             ansible.playbook = "provisioning/webserver.yml"
             ansible.become = true
-                end           
+            end           
         end
 
     ### CentOS 7 - lb01 - Load Balancer
@@ -41,5 +41,9 @@ Vagrant.configure("2") do |config|
             lb01.vm.hostname = "lb01"
             lb01.vm.network "private_network", ip: "192.168.33.13"
             lb01.vm.synced_folder '.', '/vagrant', disabled: true
+        lb01.vm.provision "ansible" do |ansible|
+            ansible.playbook = "provisioning/loadbalancer.yml"
+            ansible.become = true
         end
     end
+end

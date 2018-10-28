@@ -1,0 +1,23 @@
+---
+- hosts: all
+
+
+  tasks:
+  - name: Install HAProxy Web Server
+    package:
+      name: haproxy
+      state: present
+
+  - name: Ensure HaProxy is enabled and running
+    service:
+      name: haproxy 
+      state: started 
+      enabled: yes
+
+  - name: Deploy HAProxy Configuration
+    copy:
+      src: haproxy.cfg
+      dest: /etc/haproxy/haproxy.cfg
+      owner: root
+      group: root
+      mode: 0644
