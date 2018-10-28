@@ -15,6 +15,10 @@ Vagrant.configure("2") do |config|
             web01.vm.hostname = "web01"
             web01.vm.network "private_network", ip: "192.168.33.11"
             web01.vm.synced_folder '.', '/vagrant', disabled: true
+        web01.vm.provision "ansible" do |ansible|
+            ansible.playbook = "provisioning/webserver.yml"
+            ansible.become = true
+            end
         end
 
     ### CentOS 7 - web02 - Web Server
