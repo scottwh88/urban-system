@@ -6,3 +6,16 @@
       192.168.33.11   web01
       192.168.33.12   web02
       192.168.33.13   lb01
+
+- name: Start and enable firewalld service
+  service:
+    name: firewalld
+    state: started
+    enabled: true
+
+- name: Open port 80 for http web access
+  firewalld:
+    service: http
+    permanent: true
+    immediate: true
+    state: enabled
