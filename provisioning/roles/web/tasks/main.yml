@@ -10,6 +10,11 @@
     state: started 
     enabled: yes
 
+- name: Deploy Web Code
+  copy:
+    src: bootstrap-3.3-2.7-dist/
+    dest: "{{web_root}}/"
+
 - name: Deploy website
   template:
     src: index.html.j2
