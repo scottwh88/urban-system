@@ -1,12 +1,4 @@
----
-- name: Configure DNS
-  blockinfile:
-    path: /etc/hosts
-    block: |
-      192.168.33.11   web01
-      192.168.33.12   web02
-      192.168.33.13   lb01
-        
+---        
 - name: Install HAProxy Web Server
   package:
     name: haproxy
